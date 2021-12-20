@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
         for arg in new_list[1:]:
             values = arg.split("=")
             key = values[0].replace("_", " ")
-            value = values[1].replace('"', '')
+            value = values[1].replace('"', "")
 
             if value.isnumeric():
                 try:
@@ -138,8 +138,8 @@ class HBNBCommand(cmd.Cmd):
                 except ValueError:
                     value = float(value)
             setattr(new_instance, key, value)
+            print(" texto:{}".format(new_instance))
 
-        storage.save()
         print(new_instance.id)
         storage.save()
 
