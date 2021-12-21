@@ -36,16 +36,16 @@ class FileStorage:
         from models.review import Review
 
         classes = {
-                    'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                    'State': State, 'City': City, 'Amenity': Amenity,
-                    'Review': Review
-                  }
+            'BaseModel': BaseModel, 'User': User, 'Place': Place,
+            'State': State, 'City': City, 'Amenity': Amenity,
+            'Review': Review
+        }
         try:
             temp = {}
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
 
@@ -56,7 +56,7 @@ class FileStorage:
             return
 
         obj_split = obj.split()
-        
+
         sto_object = storage.all()
         key = obj_split[0] + "." + obj_split[1]
         if key not in sto_object.keys():
@@ -65,4 +65,4 @@ class FileStorage:
         print("{}", format(keys))
         del storage.all()[key]
         storage.save()
-        return   
+        return
