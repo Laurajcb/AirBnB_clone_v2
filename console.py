@@ -127,9 +127,9 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[new_list[0]]()
 
         for arg in new_list[1:]:
-            values = arg.split("=")
-            key = values[0].replace("_", " ")
-            value = values[1].replace('"', "")
+            values = arg.split('=')
+            key = values[0].replace('_', ' ')
+            value = values[1].replace('"', '').replace('_', ' ')
 
             if value.isnumeric():
                 try:
