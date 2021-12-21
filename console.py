@@ -128,15 +128,25 @@ class HBNBCommand(cmd.Cmd):
 
         for arg in new_list[1:]:
             values = arg.split('=')
-            key = values[0].replace('_', ' ')
-            value = values[1].replace('"', '').replace('_', ' ')
+            value = values[1]
+            key = values[0]
 
-            if value.isnumeric():
+            if '\"' in value:
+                value = value.replace('"', '').replace('_', ' ')
+
+            elif '.' in value:
+                try:
+                    value = float(value)
+                except Exception:
+                    value = None
+            else:
                 try:
                     value = int(value)
-                except ValueError:
-                    value = float(value)
-            setattr(new_instance, key, value)
+                except Exception:
+                    value = None
+
+            if value is not None:
+                setattr(new_instance, key, value)
 
         print(new_instance.id)
         storage.save()
