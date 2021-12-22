@@ -45,7 +45,7 @@ class DBStorage():
 
             for r in result:
                 id = r.__class__.__name__ + '.' + r.id
-                new_dict[id] = r      
+                new_dict[id] = r
         return new_dict
 
     def new(self, obj):

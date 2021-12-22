@@ -21,7 +21,7 @@ class State(BaseModel, Base):
 
     else:
         name = ''
-        
+
         @property
         def cities(self):
             """getter attribute cities that returns the list of City instances with state_id"""
