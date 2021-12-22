@@ -58,17 +58,17 @@ class BaseModel():
         """Convert instance into dict format"""
         dictionary = {}
         dictionary.update(self.__dict__)
+        print('update:{}'.format(self.__dict__))
         dictionary.update({'__class__':
                           (str(type(self)).split('.')[-1]).split('\'')[0]})
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
 
         try:
-            print('dict bs antes:{}'.format(self.__dict__))
             del dictionary['_sa_instance_state']
-            print('dict bs despues:{}'.format(self.__dict__))
         except:
             pass
+        print('tryyyy:{}'.format(dictionary))
         return dictionary
 
     def delete(self):
