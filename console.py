@@ -150,6 +150,7 @@ class HBNBCommand(cmd.Cmd):
 
             if value is not None:
                 setattr(new_instance, key, value)
+        models.storage.new(new_instance)
         models.storage.save()
         print(new_instance.id)
 
