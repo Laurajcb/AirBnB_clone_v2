@@ -37,9 +37,9 @@ class BaseModel():
                 elif key != '__class__':
                     setattr(self, key, value)
             if 'created_at' not in kwargs:
-                    self.created_at = self.updated_at = datetime.now()
-                    del kwargs['__class__']
-                    self.__dict__.update(kwargs)
+                self.created_at = self.updated_at = datetime.now()
+                del kwargs['__class__']
+                self.__dict__.update(kwargs)
 
     def __str__(self):
         """Returns a string representation of the instance"""
@@ -70,4 +70,3 @@ class BaseModel():
     def delete(self):
         """ Delete the current instance from storage"""
         models.storage.delete(self)
-
