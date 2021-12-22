@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship
 import sqlalchemy
 from models.city import City
 import models
-from os import 
+from os import getenv
 
 
 class Review(BaseModel):

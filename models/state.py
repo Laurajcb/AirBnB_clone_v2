@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship
 import sqlalchemy
 from models.city import City
 import models
-from os import 
+from os import getenv
 
 
 class State(BaseModel, Base):
@@ -25,8 +25,8 @@ class State(BaseModel, Base):
         from models.city import City
 
         new_list = []
-        for city_id city, in storage.all(City).items():
-            if city.state_id = self.id:
+        for city_id, city, in storage.all(City).items():
+            if city.state_id == self.id:
                 new_list.appent(city)
         return new_list
     name = ''
