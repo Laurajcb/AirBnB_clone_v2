@@ -52,10 +52,9 @@ class FileStorage:
         try:
             temp = {}
             with open(FileStorage.__file_path, 'r') as f:
-                if f is not None:
-                    temp = json.load(f)
-                    for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                temp = json.load(f)
+                for key, val in temp.items():
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
 
@@ -70,4 +69,3 @@ class FileStorage:
     def close(self):
         """Handles storage close"""
         self.reload()
-        
