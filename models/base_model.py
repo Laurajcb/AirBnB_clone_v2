@@ -40,6 +40,7 @@ class BaseModel():
                     self.created_at = self.updated_at = datetime.now()
                     del kwargs['__class__']
                     self.__dict__.update(kwargs)
+        print('dict basemodel:{}'.format(self.__dict__))
 
     def __str__(self):
         """Returns a string representation of the instance"""

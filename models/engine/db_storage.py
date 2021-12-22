@@ -45,6 +45,7 @@ class DBStorage():
             for r in result:
                 id = r.__class__.__name__ + '.' + r.id
                 new_dict[id] = r
+        print("dict: db_storages"new_dict)      
         return new_dict
 
     def new(self, obj):
