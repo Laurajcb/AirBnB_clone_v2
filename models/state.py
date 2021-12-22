@@ -24,7 +24,8 @@ class State(BaseModel, Base):
 
         @property
         def cities(self):
-            """getter attribute cities that returns the list of City instances with state_id"""
+            """getter attribute cities that returns the list of City 
+            instances with state_id"""
             from models import storage
 
             new_list = []

@@ -134,5 +134,6 @@ class TestHBNBCommand(unittest.TestCase):
             self.HBNB.onecmd("all State")
             self.assertEqual("[]\n", f.getvalue())
 
+
 if __name__ == "__main__":
     unittest.main()
