@@ -3,8 +3,9 @@
 
 from os import getenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm.scoping import scoped_session
+from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm.session import Session
+
 from models.base_model import BaseModel, Base
 from models.user import User
 from models.place import Place
@@ -22,7 +23,7 @@ class DBStorage():
     def __init__(self):
         user = getenv('HBNB_MYSQL_USER')
         passwd = getenv('HBNB_MYSQL_PWD')
-        localhost = getenv('HBNB_MYSQL_HOST')
+        host = getenv('HBNB_MYSQL_HOST')
         db = getenv('HBNB_MYSQL_DB')
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(
             user, passwd, host, db), pool_pre_ping=True)
@@ -44,13 +45,12 @@ class DBStorage():
 
             for r in result:
                 id = r.__class__.__name__ + '.' + r.id
-                new_dict[id] = r
-        print("dict: db_storages"new_dict)      
+                new_dict[id] = r      
         return new_dict
 
     def new(self, obj):
         """Add the object to the current database session """
-        self.__session.commit()
+        self.__session.add(obj)
 
     def save(self):
         """commit all changes to the database"""
@@ -68,4 +68,4 @@ class DBStorage():
         self.__session = Session()
 
     def close(self):
-        self.__session.invalidate()
+        self.__session.close()

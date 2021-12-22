@@ -10,9 +10,7 @@ class FileStorage:
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        """for i, j in FileStorage.__objects.items():
-            print(str(i) + " " + str(j))"""
-        """return FileStorage.__objects"""
+
         if cls is None:
             return self.__objects
 
@@ -68,3 +66,7 @@ class FileStorage:
             id = obj.__class__.__name__ + '.' + obj.id
             if id in self.__objects.keys():
                 del(self.__objects[id])
+
+    def close(self):
+        """Handles storage close"""
+        self.reload()
