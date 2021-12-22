@@ -64,7 +64,9 @@ class BaseModel():
         dictionary['updated_at'] = self.updated_at.isoformat()
 
         try:
+            print('dict bs antes:{}'.format(self.__dict__))
             del dictionary['_sa_instance_state']
+            print('dict bs despues:{}'.format(self.__dict__))
         except:
             pass
         return dictionary
