@@ -17,7 +17,6 @@ class FileStorage:
         else:
             newlist = {}
             for key, value in self.__objects.items():
-                class_name = key.split(".")
                 if isinstance(value, cls):
                     newlist[key] = value
             return newlist
@@ -37,7 +36,7 @@ class FileStorage:
 
     def reload(self):
         """Loads storage dictionary from file"""
-        from models.base_model import BaseModel, Base
+        from models.base_model import BaseModel
         from models.user import User
         from models.place import Place
         from models.state import State
@@ -70,3 +69,4 @@ class FileStorage:
     def close(self):
         """Handles storage close"""
         self.reload()
+        
