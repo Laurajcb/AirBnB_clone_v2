@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 """ Review module for the HBNB project """
+from sqlalchemy.orm.base import attribute_str
 from models.base_model import BaseModel, Base
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
-from os import getenv
+import sqlalchemy
+from models.city import City
+import models
+from os import 
 
 
 class Review(BaseModel):
