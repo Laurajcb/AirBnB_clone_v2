@@ -7,8 +7,8 @@ from fabric.api import local
 from datetime import datetime
 
 
-"""def do_pack():
-    """Function to generate a tgz from web_static"""
+def do_pack():
+    """ Function to generate a tgz from web_static"""
     try:
         local("mkdir -p versions")
         date = datetime.now().strftime('%Y%m%d%H%M%S')
@@ -17,6 +17,4 @@ from datetime import datetime
         return tgz_file
     except:
         return None
-"""
-def do_hello():  
-    print("hello")
+
