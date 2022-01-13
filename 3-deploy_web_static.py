@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" do_pack function hat distributes an archive to your web servers
-using the function do_deploy
+""" Function that do a full deployment of static content into servers
 """
 
 from fabric.api import run, put, env
@@ -9,6 +8,15 @@ import os
 
 env.user = 'ubuntu'
 env.hosts = ['34.75.150.142', '54.205.3.49']
+
+
+def deploy():
+    """Function that do a full deployment"""
+    web_static_pack = do_pack()
+
+    if web_static_pack is None:
+        return False
+    return do_deploy(web_static_pack)
 
 
 def do_pack():
