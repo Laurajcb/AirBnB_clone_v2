@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" do_pack function """
+""" do_pack function hat distributes an archive to your web servers
+using the function do_deploy
+"""
 
 from fabric.api import run, put, env
 from datetime import datetime
