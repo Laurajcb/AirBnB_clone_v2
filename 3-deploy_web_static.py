@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 
 env.user = 'ubuntu'
-env.hosts = ['34.75.150.142', '54.205.3.49']
+env.hosts = ['34.75.150.142', '34.138.198.108']
 
 
 def deploy():
