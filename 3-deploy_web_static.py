@@ -11,12 +11,14 @@ env.hosts = ['34.75.150.142', '34.138.198.108']
 
 
 def deploy():
-    """Function that do a full deployment"""
-    web_static_pack = do_pack()
+    """Fabric script that creates and distributes an archive
+    to your web servers, using the function deploy"""
 
-    if web_static_pack is None:
+    tgz_file = do_pack()
+    if tgz_file is None:
         return False
-    return do_deploy(web_static_pack)
+    do_deploy_value = do_deploy(tgz_file)
+    return do_deploy_value
 
 
 def do_pack():
