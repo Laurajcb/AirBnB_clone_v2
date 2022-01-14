@@ -2,7 +2,7 @@
 """ Function that do a full deployment of static content into servers
 """
 
-from fabric.api import run, put, env
+from fabric.api import run, put, env, local
 from datetime import datetime
 import os
 
