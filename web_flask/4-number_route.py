@@ -36,7 +36,7 @@ def p_messages(text):
 def n_messages(n):
     """ Function that displays is a nunber with a giving number """
     if n.isnumeric():
-        return '{} is a nuber'.format(n)
+        return '{} is a number'.format(n)
 
 
 if __name__ == "__main__":
