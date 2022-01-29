@@ -32,7 +32,7 @@ def p_messages(text):
     return 'Python {}'.format(text.replace('_', ' '))
 
 
-@app.route('/number/<n>', strict_slashes=False)
+@app.route('/number/<int:n>', strict_slashes=False)
 def n_messages(n):
     """ Function that displays is a nunber with a giving number """
     if n.isnumeric():
