@@ -29,7 +29,7 @@ def c_messages(text):
 @app.route('/python/<text>', strict_slashes=False)
 def p_messages(text):
     """Function that displays python + text """
-    return 'Python {}'.format(text.replace('_' ' '))
+    return 'Python {}'.format(text.replace('_', ' '))
 
 
 if __name__ == "__main__":
